@@ -1,11 +1,9 @@
-SELECT DISTINCT name
+SELECT DISTINCT m1.name
 FROM members AS m1
-WHERE EXISTS (
-    SELECT *
+WHERE (
+    SELECT COUNT(DISTINCT mk1.number)
     FROM memberInKnesset AS mk1
     WHERE mk1.uid = m1.uid
-    GROUP BY mk1.uid
-    HAVING COUNT(DISTINCT mk1.number) = 1
-)
-AND birthPlace = 'Jerusalem'
-ORDER BY name;
+) = 1
+AND m1.birthPlace = 'Jerusalem'
+ORDER BY m1.name;
