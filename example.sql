@@ -1,1 +1,0 @@
-INSERT INTO donors VALUES ('donor1', 'A', 1), ('donor2', 'A', 2), ('donor1', 'B', 3);
